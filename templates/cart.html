@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block food %}
+<div class="container card shodow-lg mt-5">
+    {% if carts %}
+    
+    <table class="table table-striped">
+        <thead  class="thead-dark">
+        <tr>
+            <th scope="col">Action</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cart in carts %}
+        <tr>
+            <th scope="row">1</th>
+            <td>{{cart.Pizza.pizza_name}}</td>
+            <td>{{cart.Pizza.price}}</td>
+            <td>1</td>
+            <td>{{cart.Pizza.price}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total: {{total}}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    {% else %}
+    <div class="alert alert-warning" role="alert">
+        You have no cart Item
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
